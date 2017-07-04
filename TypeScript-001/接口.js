@@ -31,3 +31,37 @@ var p1 = { x: 10, y: 20 };
 //p1.x = 5; // error,只读属性无法再次修改啦!
 //它与Array<T>相似，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改：
 var ro = a;
+//接口函数变量声明，参数个数和参数类型和返回值类型必须一致
+var mySearch;
+mySearch = function (source, subString) {
+    var result = source.search(subString);
+    return result > -1;
+};
+var myArray;
+myArray = ["Bob", "Fred", "Jane"];
+var myStr = myArray[0];
+var Clock = (function () {
+    function Clock(h, m) {
+    }
+    Clock.prototype.setTime = function (d) {
+        this.currentTime = d;
+    };
+    return Clock;
+}());
+var square = {};
+square.color = "blue";
+square.sideLength = 10;
+square.penWidth = 5.0;
+function getCounter() {
+    var counter = function (start) { };
+    counter.interval = 123;
+    counter.reset = function () {
+        console.log("实现你的方法数据结构");
+    };
+    return counter;
+}
+var counter = getCounter();
+counter(10);
+counter.reset();
+counter.interval = 5.0;
+//==================接口继承类====================================
